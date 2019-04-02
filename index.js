@@ -22,7 +22,7 @@ document.body.append(character)
 let direction = null
 
 // Define a variable to reperesent the speed of our character
-let speed = 1
+let speed = 5
 
 // Have someone at your table do some research on  setInterval- what is it doing?
 setInterval(function(){
@@ -47,6 +47,7 @@ setInterval(function(){
     // Account for other directions here:
 
 }, 20) // <- What is this number?
+setInterval(walkInACircle, 12000);
 
 // When we want to start walking a given direction, let's change:
 //  1. The characters gif.
@@ -80,4 +81,11 @@ function walkDown(){
 function stop(){
     character.src = `${ASSET_ROOT}/static.gif`
     direction = null
+}
+
+function walkInACircle(){
+    walkRight();
+    setTimeout(walkUp, 3000);
+    setTimeout(walkLeft, 6000);
+    setTimeout(walkDown, 9000);
 }
