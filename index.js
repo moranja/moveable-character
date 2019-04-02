@@ -22,7 +22,7 @@ document.body.append(character)
 let direction = null
 
 // Define a variable to reperesent the speed of our character
-let speed = 5
+let speed = 1
 
 // Have someone at your table do some research on  setInterval- what is it doing?
 setInterval(function(){
@@ -36,13 +36,19 @@ setInterval(function(){
     // What is speed?
     if(direction == 'right'){
         character.style.left = `${left+speed}px`
+    } else if(direction == 'left'){
+        character.style.left = `${left-speed}px`
+    } else if(direction == 'up'){
+        character.style.bottom = `${bottom+speed}px`
+    } else if(direction == 'down'){
+        character.style.bottom = `${bottom-speed}px`
     }
 
     // Account for other directions here:
 
 }, 20) // <- What is this number?
 
-// When we want to start walking a given direction, let's change: 
+// When we want to start walking a given direction, let's change:
 //  1. The characters gif.
 //  2. The value of the direction variable. How will this effect the setInterval loop above?
 function walkRight(){
@@ -54,14 +60,20 @@ function walkRight(){
 // Finish the functions below:
 
 function walkLeft(){
+    character.src = `${ASSET_ROOT}/walkleft.gif`
+    direction = 'left'
 
 }
 
 function walkUp(){
+    character.src = `${ASSET_ROOT}/walkup.gif`
+    direction = 'up'
 
 }
 
 function walkDown(){
+    character.src = `${ASSET_ROOT}/walkdown.gif`
+    direction = 'down'
 
 }
 
